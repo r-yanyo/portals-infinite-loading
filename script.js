@@ -3,7 +3,7 @@ window.onload = function() {
   if (!'HTMLPortalElement' in window) return alert('portalが無効です。')
 
   // google検索でだけ動かす
-  if (!'google' in window.location.href) return
+  if (!window.location.href.includes('google')) return
 
   setTimeout(main, 500)
 }
@@ -26,16 +26,15 @@ function main() {
   // 一番下までスクロールしたらportalがappendされる
   window.onscroll = function() {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-    if (scrollTop >= document.body.offsetHeight - window.outerHeight) {
+    if (scrollTop >= document.body.offsetHeight - window.innerHeight) {
       document.body.appendChild(scrollArea)
       scrollArea.appendChild(emptyArea)
       scrollArea.appendChild(nextPagePortal)
+      scrollArea.style.display = 'block'
     }
   }
 
   scrollArea.onscroll = function() {
-    // console.log(this.scrollTop, window.innerHeight)
-
     // 上に戻ったらportal非表示
     if (this.scrollTop <= 0) {
       this.style.display = 'none'
