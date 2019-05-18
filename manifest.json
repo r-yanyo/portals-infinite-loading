@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "portal-nextpage",
+  "description": "スクロールすると、次のページがportalで出てくる。",
+  "version": "1.0",
+  "permissions": ["tabs", "<all_urls>", "management", "storage"],
+
+  "options_page": "options.html",
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["script.js"],
+      "css": ["style.css"]
+    }
+  ]
+}
