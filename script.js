@@ -2,6 +2,9 @@ window.onload = function() {
   // もし Portal が利用できるプラットフォームであれば...
   if (!'HTMLPortalElement' in window) return alert('portalが無効です。')
 
+  // google検索でだけ動かす
+  if (!'google' in window.location.href) return
+
   setTimeout(main, 500)
 }
 
