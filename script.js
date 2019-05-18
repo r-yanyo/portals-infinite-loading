@@ -5,7 +5,7 @@ window.onload = function() {
   // google検索でだけ動かす
   if (!window.location.href.includes('google')) return
 
-  setTimeout(main, 500)
+  main()
 }
 
 function main() {
